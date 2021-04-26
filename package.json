@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "build": "netlify-lambda build express",
+    "start": "node server-local.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.10.1",
-    "nodemailer": "^6.5.0"
+    "netlify-lambda": "^2.0.5",
+    "nodemailer": "^6.5.0",
+    "serverless-http": "^2.7.0"
   }
 }
