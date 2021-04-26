@@ -3,7 +3,7 @@ const { body, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const app = express();
 const cors = require('cors');
-
+require('dotenv').config()
 const HTTP_PORT = process.env.PORT || 9000;
 
 app.use(cors());
@@ -26,7 +26,7 @@ function(req, res) {
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log(req.body);
+  
     let mailOptions = '';
   
 
@@ -35,22 +35,23 @@ function(req, res) {
     host: 'smtp.gmail.com',
     secure: true,
     auth: {
-        user: 'kamyabportfolio@gmail.com', // generated ethereal user
-        pass: 'Aa{?1%2D63~q'  // generated ethereal password
+        user: process.env.USER_ACCESS, // generated ethereal user
+        pass: process.env.USER_PASSWORD  // generated ethereal password
     },
     tls:{
       rejectUnauthorized:false
     }
   });
  
-  // setup email data with unicode symbols
-
+ // data for email of website owner 
+ let EmailOwner = process.env.OWNER_EMAIL
 
  let output = '';
- let listReceivers =[`karouhifar@gmail.com`,`${req.body.email}`];
+   // setup email data with unicode symbols
+ let listReceivers =[EmailOwner,`${req.body.email}`];
  listReceivers.map((value) =>{
 
-  if (value == 'karouhifar@gmail.com') {
+  if (value == EmailOwner) {
    output = `
     <h2>Contact Confirmation</h2>
     <h3>-- 📧 Contact Details  📧--</h3>
@@ -71,7 +72,7 @@ function(req, res) {
 
 
   mailOptions = {
-      from: '"Portfolio message" <kamyabportfolio@gmail.com>', // sender address
+      from: `"Portfolio message" <${process.env.USER_ACCESS}>`, // sender address
       to: value, // list of receivers
       subject: `${req.body.subject}`, // Subject line
       text: '', // plain text body
