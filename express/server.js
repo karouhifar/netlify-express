@@ -9,7 +9,7 @@ const router = express.Router();
 
  // config static file
 
- app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use( express.static(path.join(__dirname, 'public')));
 app.use(express.json());
  // Cross-Origin Resource Sharing
  app.use(cors());
