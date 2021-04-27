@@ -1,0 +1,43 @@
+/* import common variables */
+@import url(./global_var.css);
+
+/* Start about us  */
+.about-us {
+padding-bottom: 50px;
+padding-top: 50px;
+}
+
+.about-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 8% 0;
+}
+.about-us ul li {
+    margin: 5px 0 5px 0 ;
+}
+
+/* End about us  */
+.testimonials{
+background: var(--background-color);
+padding-bottom: 50px;
+padding-top: 50px;
+}
+
+.testimonials-details {
+    border-left: black 4px solid;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 10px;
+}
+
+.testimonials-details img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.user-details{
+    display: inline-block;
+    font-size: 12px;
+}
+
