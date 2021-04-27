@@ -8,7 +8,7 @@ const router = express.Router();
  //--------------------- MiddleWares ---------------------//
 
  // config static file
- app.use('/public', express.static(path.join(__dirname, 'public')));
+ router.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
  // Cross-Origin Resource Sharing
