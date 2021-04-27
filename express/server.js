@@ -8,8 +8,8 @@ const router = express.Router();
  //--------------------- MiddleWares ---------------------//
 
  // config static file
- router.use('/public', express.static(path.join(__dirname, 'public')));
 
+ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
  // Cross-Origin Resource Sharing
  app.use(cors());
@@ -26,5 +26,5 @@ app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../dist/index.html
 //   console.log(`CORS-enabled web server listening on port ${HTTP_PORT}`)
 // });
 
-module.exports = app;
+// module.exports = app;
 module.exports.handler = serverless(app);
